@@ -19,5 +19,11 @@ const infoCards = [
     info: "CNN, Wired, BBC News, Time, IGN, Buzzfeed, ABC News...",
     text: "Give me the news from CNN",
   },
+  {
+    color: "#283593",
+    title: "News by Countries",
+    info: "China, United States, Germany, Saudi Arabia, Australia...",
+    text: "Top news from India",
+  },
 ];
 export default infoCards;
