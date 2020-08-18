@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-import NewsCards from "./components/NewsCards/NewsCards";
+import { NewsCards } from "./components/index";
 import alanBtn from "@alan-ai/alan-sdk-web";
-// import useStyles from "./styles";
+import useStyles from "./styles";
 import wordsToNumbers from "words-to-numbers";
+import image from "./images/logo.png";
+import { Typography } from "@material-ui/core";
 
 const alanKey =
   "e8f98f6c7f8abaccd67d04c2eeba2b862e956eca572e1d8b807a3e2338fdd0dc/stage";
 const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
   const [activeArticle, setActiveArticle] = useState(-1);
-  // const classes = useStyles();
+  const classes = useStyles();
 
   useEffect(() => {
     alanBtn({
@@ -39,8 +41,41 @@ const App = () => {
   }, []);
   return (
     <div>
-      <h1>AI News Application</h1>
+      <div className={classes.logoContainer}>
+        {newsArticles.length ? (
+          <div className={classes.infoContainer}>
+            <div className={classes.card}>
+              <Typography variant="h5" component="h2">
+                Try saying: <br />
+                <br />
+                Open article number [4]
+              </Typography>
+            </div>
+            <div className={classes.card}>
+              <Typography variant="h5" component="h2">
+                Try saying: <br />
+                <br />
+                Go back
+              </Typography>
+            </div>
+          </div>
+        ) : null}
+        <img src={image} className={classes.logo} alt="logo" />
+      </div>
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
+      {!newsArticles.length ? (
+        <div className={classes.footer}>
+          <Typography variant="body1" component="h2">
+            Created by{" "}
+            <a
+              className={classes.link}
+              href="https://www.linkedin.com/in/h4mm4d/"
+            >
+              Hammad Ansari
+            </a>
+          </Typography>
+        </div>
+      ) : null}
     </div>
   );
 };

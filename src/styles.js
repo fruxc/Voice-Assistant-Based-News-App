@@ -64,7 +64,7 @@ export default makeStyles((theme) => ({
       textAlign: "center",
     },
   },
-  alanLogo: {
+  logo: {
     height: "27vmin",
     borderRadius: "15%",
     padding: "0 5%",
