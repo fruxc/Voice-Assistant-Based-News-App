@@ -55,18 +55,24 @@ const App = () => {
           <DarkModeToggle
             onChange={setIsDarkMode}
             checked={isDarkMode}
-            size={80}
+            size={60}
             className={classes.darkButton}
           />
         </div>
+        <br />
+        <br />
         <div className={classes.logoContainer}>
+          <img src={image} className={classes.logo} alt="logo" />
+        </div>
+        <div>
           {newsArticles.length ? (
             <div className={classes.infoContainer}>
               <div className={classes.card}>
                 <Typography variant="h5" component="h2">
                   Try saying: <br />
                   <br />
-                  Open article number [4]
+                  Open article
+                  <br /> number [4]
                 </Typography>
               </div>
               <div className={classes.card}>
@@ -78,7 +84,6 @@ const App = () => {
               </div>
             </div>
           ) : null}
-          <img src={image} className={classes.logo} alt="logo" />
         </div>
         <NewsCards articles={newsArticles} activeArticle={activeArticle} />
         <div className={classes.footer}>

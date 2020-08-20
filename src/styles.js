@@ -24,8 +24,8 @@ export default makeStyles((theme) => ({
   },
   darkButton: {
     position: "absolute",
-    top: 0,
-    right: 0,
+    top: 5,
+    right: 5,
   },
   card: {
     display: "flex",
@@ -42,7 +42,6 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column-reverse",
       textAlign: "center",
-      width: "100%",
       height: "initial",
       "&:nth-of-type(1)": {
         marginBottom: "12px",
