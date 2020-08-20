@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
   footer: {
     textAlign: "center",
-    position: "fixed",
     left: 0,
     bottom: 0,
     color: "black",
@@ -22,6 +21,11 @@ export default makeStyles((theme) => ({
   },
   image: {
     marginLeft: 20,
+  },
+  darkButton: {
+    position: "absolute",
+    top: 0,
+    right: 0,
   },
   card: {
     display: "flex",

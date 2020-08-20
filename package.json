@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
+    "react-dark-mode-toggle": "0.0.9",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "words-to-numbers": "^1.5.1"

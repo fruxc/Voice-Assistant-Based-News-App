@@ -4,14 +4,23 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 import useStyles from "./styles";
 import wordsToNumbers from "words-to-numbers";
 import image from "./images/logo.png";
-import { Typography } from "@material-ui/core";
+import { Typography, Paper } from "@material-ui/core";
+import DarkModeToggle from "react-dark-mode-toggle";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const alanKey =
   "e8f98f6c7f8abaccd67d04c2eeba2b862e956eca572e1d8b807a3e2338fdd0dc/stage";
 const App = () => {
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: "dark",
+    },
+  });
+
   const [newsArticles, setNewsArticles] = useState([]);
   const [activeArticle, setActiveArticle] = useState(-1);
   const classes = useStyles();
+  const [isDarkMode, setIsDarkMode] = useState(() => true);
 
   useEffect(() => {
     alanBtn({
@@ -40,30 +49,38 @@ const App = () => {
     });
   }, []);
   return (
-    <div>
-      <div className={classes.logoContainer}>
-        {newsArticles.length ? (
-          <div className={classes.infoContainer}>
-            <div className={classes.card}>
-              <Typography variant="h5" component="h2">
-                Try saying: <br />
-                <br />
-                Open article number [4]
-              </Typography>
+    <ThemeProvider theme={isDarkMode ? darkTheme : null}>
+      <Paper>
+        <div className={classes.darkButton}>
+          <DarkModeToggle
+            onChange={setIsDarkMode}
+            checked={isDarkMode}
+            size={80}
+            className={classes.darkButton}
+          />
+        </div>
+        <div className={classes.logoContainer}>
+          {newsArticles.length ? (
+            <div className={classes.infoContainer}>
+              <div className={classes.card}>
+                <Typography variant="h5" component="h2">
+                  Try saying: <br />
+                  <br />
+                  Open article number [4]
+                </Typography>
+              </div>
+              <div className={classes.card}>
+                <Typography variant="h5" component="h2">
+                  Try saying: <br />
+                  <br />
+                  Go back
+                </Typography>
+              </div>
             </div>
-            <div className={classes.card}>
-              <Typography variant="h5" component="h2">
-                Try saying: <br />
-                <br />
-                Go back
-              </Typography>
-            </div>
-          </div>
-        ) : null}
-        <img src={image} className={classes.logo} alt="logo" />
-      </div>
-      <NewsCards articles={newsArticles} activeArticle={activeArticle} />
-      {!newsArticles.length ? (
+          ) : null}
+          <img src={image} className={classes.logo} alt="logo" />
+        </div>
+        <NewsCards articles={newsArticles} activeArticle={activeArticle} />
         <div className={classes.footer}>
           <Typography variant="body1" component="h2">
             Created by{" "}
@@ -75,8 +92,8 @@ const App = () => {
             </a>
           </Typography>
         </div>
-      ) : null}
-    </div>
+      </Paper>
+    </ThemeProvider>
   );
 };
 

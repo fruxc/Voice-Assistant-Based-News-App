@@ -20,7 +20,7 @@ const infoCards = [
     text: "Give me the news from CNN",
   },
   {
-    color: "#283593",
+    color: "#932876",
     title: "News by Countries",
     info: "China, United States, Germany, Saudi Arabia, Australia...",
     text: "Top news from India",
