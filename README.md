@@ -1,2 +1,2 @@
 # News Application Using Voice Recognition
-[AI NEWS LIVE](news-ai.netlify.com)
+[AI NEWS LIVE](https://news-ai.netlify.com)
