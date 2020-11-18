@@ -19,4 +19,4 @@ npm start
 
 ## Data Flow Diagram
 
-![Diagram](https://github.com/fruxc/AINews/blob/master/src/images/News App.png)
+![Diagram](https://github.com/fruxc/AINews/blob/master/src/images/NewsApp.png)
